@@ -27,14 +27,9 @@ public class NasaController {
     private UserDao userDao;
 
     @GetMapping("/neos")
-    public List<Neo> getNeos(){
-        String startDate = "2025-03-26";
-        String endDate = "2025-03-26";
+    public List<Neo> getNeos(@RequestParam String startDate, @RequestParam String endDate){
         return service.getNEOData(startDate, endDate);
     }
-//    public List<Neo> getNeos(@RequestParam String startDate, @RequestParam String endDate){
-//        return service.getNEOData(startDate, endDate);
-//    }
 
     @PostMapping("/saveneo")
     public Neo saveNeoToDB(@RequestParam String nasaId,
